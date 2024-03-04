@@ -1,14 +1,15 @@
 %{
-	#include<stdio.h>
 %}
+%%
+[a-z][a-z.0-9]+ {printf("it is an identifier");}
+.+ {printf("it is not identifier");}
+%%
 
-%%
-[A-Z]+[\t\n ] { printf("%s",yytext); }
-.  ;
-%%
-Int yywrap(){}
-int main( ) 
+int yywrap( )
 {
-	printf("Enter the input string:\n");
-	yylex();
+}
+int main( )
+{
+printf("enter the input:");
+yylex( );
 }
