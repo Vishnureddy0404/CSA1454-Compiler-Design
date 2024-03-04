@@ -3,13 +3,18 @@
 %}
 
 %%
-
-if|else|while|int|switch|for|char { printf("its a keyword");}
-[a-zA-Z0-9]+ { printf("\n%s is IDENTIFIER", yytext);}
-
+if|else {printf("%s is a keyword", yytext);}
+[0-9]+ {printf("%s is a digit", yytext);}
+[a-z A-Z]+ {printf("%s is an alphabet", yytext);}
+. ;
 %%
-int yywrap( ){}
 int main()
 {
-	while( yylex());
+printf("\n Enter the input string:");	
+yylex();
+}
+
+int yywrap()
+{
+return 1;
 }
